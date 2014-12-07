@@ -1,0 +1,7 @@
+pwrconsume <- fread("household_power_consumption.txt")
+pwrconsume$Date <- as.Date(pwrconsume$Date,format="%d/%m/%Y")
+date1 <- rbind(pwrconsume[pwrconsume$Date=="2007-02-01",],pwrconsume[pwrconsume$Date=="2007-02-02",])
+date1$Global_active_power <- as.numeric(date1$Global_active_power)
+hist(date1$Global_active_power,col="Red",xlab="GlobalActive Power(kilowatts)",main="Global Active Power")
+dev.copy(png, file="plot1.png",width = 480, height = 480, units = "px", bg = "white")
+dev.off()
