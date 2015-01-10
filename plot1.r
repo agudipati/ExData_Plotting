@@ -1,3 +1,4 @@
+library("data.table")
 pwrconsume <- fread("household_power_consumption.txt")
 pwrconsume$Date <- as.Date(pwrconsume$Date,format="%d/%m/%Y")
 date1 <- rbind(pwrconsume[pwrconsume$Date=="2007-02-01",],pwrconsume[pwrconsume$Date=="2007-02-02",])
